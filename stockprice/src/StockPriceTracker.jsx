@@ -3,12 +3,14 @@ import axios from "axios";
 import Select from "react-select";
 
 const StockPriceTracker = () => {
-  const [stock, setStock] = useState();
+  const [stock, setStock] = useState("AAPL");
   const [price, setPrice] = useState(0);
 
   useEffect(() => {
     const fetchStockPrice = async () => {
-      const response = await axios.get(`https://stockprice-9q4b.onrender.com/api/stocks/${stock}`);
+      const response = await axios.get(`http://localhost:3001/api/stocks/${stock}`, {
+        timeout: 15000, // Set a longer timeout (in milliseconds)
+      });
       setPrice(response.data.price);
     };
 
