@@ -8,7 +8,7 @@ const StockPriceTracker = () => {
 
   useEffect(() => {
     const fetchStockPrice = async () => {
-      const response = await axios.get(`http://localhost:3001/api/stocks/${stock}`);
+      const response = await axios.get(`https://stockprice-9q4b.onrender.com//api/stocks/${stock}`);
       setPrice(response.data.price);
     };
 
