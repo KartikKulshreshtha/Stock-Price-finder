@@ -52,5 +52,4 @@ const StockPriceTracker = () => {
     </div>
   );
 };
-
 export default StockPriceTracker;
