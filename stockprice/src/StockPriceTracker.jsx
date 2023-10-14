@@ -8,9 +8,9 @@ const StockPriceTracker = () => {
 
   useEffect(() => {
     const fetchStockPrice = async () => {
-      const response = await axios.get(`http://localhost:3001/api/stocks/${stock}`, {
-        timeout: 15000, // Set a longer timeout (in milliseconds)
-      });
+      const response = await axios.get(
+        `http://localhost:3001/api/stocks/${stock}`
+      );
       setPrice(response.data.price);
     };
 
@@ -46,8 +46,8 @@ const StockPriceTracker = () => {
       <h1 className="tracker-title">Stock Price Tracker</h1>
       <p className="current-price">Current price: ${price.toFixed(2)}</p>
       <Select
-        value={stock}
-        onChange={(e) => setStock(e.value)}
+        value={options.find((option) => option.value === stock)}
+        onChange={(selectedOption) => setStock(selectedOption.value)}
         options={options}
         className="stock-select"
       />
